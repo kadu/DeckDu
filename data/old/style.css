@@ -1,0 +1,11 @@
+.header {
+  background-color: beige;
+  height: 60px;
+  font-size: x-large;
+  font-weight: 800;
+  text-align: center;
+}
+
+h2 {
+  margin-top: 0px;
+}

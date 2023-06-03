@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300&display=swap');
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css"
+    integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">
+  <script src="index.js"></script>
+</head>
+
+<body>
+
+  <div class="cable">
+  </div>
+  <div class="keyboard">
+
+    <div class="lights">
+      <span>1</span>
+      <span>A</span>
+      <span>V</span>
+    </div>
+
+
+    <div class="section-a">
+      <div class="key function space1" onclick="btnClick('ESC')">
+        Esc
+      </div>
+
+      <div class="key function" onclick="btnClick('F1')">
+        F1
+      </div>
+      <div class="key function" onclick="btnClick('F2')">
+        F2
+      </div>
+      <div class="key function" onclick="btnClick('F3')">
+        F3
+      </div>
+
+      <div class="key function space2" onclick="btnClick('F4')">
+        F4
+      </div>
+      <div class="key function" onclick="btnClick('F5')">
+        F5
+      </div>
+      <div class="key function" onclick="btnClick('F6')">
+        F6
+      </div>
+      <div class="key function" onclick="btnClick('F7')">
+        F7
+      </div>
+      <div class="key function space2" onclick="btnClick('F8')">
+        F8
+      </div>
+
+      <div class="key function" onclick="btnClick('F9')">
+        F9
+      </div>
+      <div class="key function" onclick="btnClick('F10')">
+        F10
+      </div>
+      <div class="key function" onclick="btnClick('F11')">
+        F11
+      </div>
+      <div class="key function" onclick="btnClick('F12')">
+        F12
+      </div>
+      <!--END FUNCTION KEYS -->
+
+      <div class="key num dual" onclick="btnClick('~')">
+        ~<br>`
+      </div>
+
+      <div class="key num dual" onclick="btnClick('1')">
+        !<br>1
+      </div>
+      <div class="key num dual" onclick="btnClick('2')">
+        @<br>2
+      </div>
+      <div class="key num dual" onclick="btnClick('3')">
+        #<br>3
+      </div>
+      <div class="key num dual" onclick="btnClick('4')">
+        $<br>4
+      </div>
+      <div class="key num dual" onclick="btnClick('5')">
+        %<br>5
+      </div>
+      <div class="key num dual" onClick="btnClick('6')">
+        ^<br>6
+      </div>
+      <div class="key num dual" onClick="btnClick('7')">
+        &<br>7
+      </div>
+      <div class="key num dual" onClick="btnClick('8')">
+        *<br>8
+      </div>
+      <div class="key num dual" onClick="btnClick('9')">
+        (<br>9
+      </div>
+      <div class="key num dual" onClick="btnClick('0')">
+        )<br>0
+      </div>
+      <div class="key num dual" onClick="btnClick('_')">
+        _<br>-
+      </div>
+      <div class="key num dual" onClick="btnClick('+')">
+        +<br>=
+      </div>
+      <div class="key backspace" onclick="btnClick('BACKSPACE')">
+        Backspace
+      </div>
+      <!--END NUMBER KEYS -->
+
+      <div class="key tab" onclick="btnClick('TAB')">
+        Tab
+      </div>
+
+      <div class="key letter" onclick="btnClick('Q')">
+        Q
+      </div>
+      <div class="key letter" onclick="btnClick('W')">
+        W
+      </div>
+      <div class="key letter" onclick="btnClick('E')">
+        E
+      </div>
+      <div class="key letter" onclick="btnClick('R')">
+        R
+      </div>
+      <div class="key letter" onclick="btnClick('T')">
+        T
+      </div>
+      <div class="key letter" onclick="btnClick('Y')">
+        Y
+      </div>
+      <div class="key letter" onclick="btnClick('U')">
+        U
+      </div>
+      <div class="key letter" onclick="btnClick('I')">
+        I
+      </div>
+      <div class="key letter" onclick="btnClick('O')">
+        O
+      </div>
+      <div class="key letter" onclick="btnClick('P')">
+        P
+      </div>
+      <div class="key dual" onclick="btnClick('ABRE_CHAVES')">
+        {<Br>[
+      </div>
+      <div class="key dual" onclick="btnClick('FECHA_CHAVES')">
+        }<br>]
+      </div>
+      <div class="key letter dual slash" onclick="btnClick('BARRA')">
+        |<br>\
+      </div>
+      <div class="key caps" onclick="btnClick('CAPS_LOCK')">
+        Caps<br>Lock
+      </div>
+      <div class="key letter" onclick="btnClick('A')">
+        A
+      </div>
+      <div class="key letter" onclick="btnClick('S')">
+        S
+      </div>
+      <div class="key letter" onclick="btnClick('D')">
+        D
+      </div>
+      <div class="key letter" onclick="btnClick('F')">
+        F
+      </div>
+      <div class="key letter" onclick="btnClick('G')">
+        G
+      </div>
+      <div class="key letter" onclick="btnClick('H')">
+        H
+      </div>
+      <div class="key letter" onclick="btnClick('J')">
+        J
+      </div>
+      <div class="key letter" onclick="btnClick('K')">
+        K
+      </div>
+      <div class="key letter" onclick="btnClick('L')">
+        L
+      </div>
+      <div class="key dual" onclick="btnClick('DOISPONTOS')">
+        :<br>;
+      </div>
+      <div class="key dual" onclick="btnClick('ASPAS')">
+        "<br>'
+      </div>
+      <div class="key enter" onclick="btnClick('ENTER')">
+        Enter
+      </div>
+
+      <div class="key shift left" onclick="btnClick('SHIFT')">
+        Shift
+      </div>
+      <div class="key letter" onclick="btnClick('Z')">
+        Z
+      </div>
+      <div class="key letter" onclick="btnClick('X')">
+        X
+      </div>
+      <div class="key letter" onclick="btnClick('C')">
+        C
+      </div>
+      <div class="key letter" onclick="btnClick('V')">
+        V
+      </div>
+      <div class="key letter" onclick="btnClick('B')">
+        B
+      </div>
+      <div class="key letter" onclick="btnClick('N')">
+        N
+      </div>
+      <div class="key letter" onclick="btnClick('M')">
+        M
+      </div>
+      <div class="key dual" onclick="btnClick(',')">
+        <br>,
+      </div>
+      <div class="key dual" onclick="btnClick('.')">
+        <br>.
+      </div>
+      <div class="key dual" onclick="btnClick('?')">
+        ?<br>/
+      </div>
+      <div class="key shift right" onclick="btnClick('SHIFT')">
+        Shift
+      </div>
+      <div class="key ctrl" onclick="btnClick('CTRL')">
+        Ctrl
+      </div>
+      <div class="key" onclick="btnClick('META')">
+        &hearts;
+      </div>
+      <div class="key" onclick="btnClick('ALT')">
+        Alt
+      </div>
+      <div class="key space" onclick="btnClick('SPACE')">
+
+
+
+      </div>
+      <div class="key" onclick="btnClick('ALT')">
+        Alt
+      </div>
+      <div class="key" onclick="btnClick('META')">
+        &hearts;
+      </div>
+      <div class="key" onclick="btnClick('PRINT')">
+        Prnt
+      </div>
+      <div class="key ctrl" onclick="btnClick('CTRL')">
+        Ctrl
+      </div>
+    </div><!-- end section-a-->
+
+    <div class="section-b">
+      <div class="key function small" onclick="btnClick('PRINT_SCREEN')">
+        Prnt Scrn
+      </div>
+      <div class="key function small" onclick="btnClick('SCROLL_LOCK')">
+        Scroll Lock
+      </div>
+      <div class="key function small" onclick="btnClick('BREAK')">
+        Pause Break
+      </div>
+
+      <dic class="sec-func">
+        <div class="key" onclick="btnClick('INSERT')">
+          Insert
+        </div>
+        <div class="key" onclick="btnClick('HOME')">
+          Home
+        </div>
+        <div class="key dual" onclick="btnClick('PGUP')">
+          Page Up
+        </div>
+        <div class="key" onclick="btnClick('DEL')">
+          Del
+        </div>
+        <div class="key" onclick="btnClick('END')">
+          End
+        </div>
+        <div class="key dual" onclick="btnClick('PGDOWN')">
+          Page Down
+        </div>
+
+        <div class="arrows">
+          <div class="key hidden">
+
+          </div>
+          <div class="key" onclick="btnClick('UP')">
+            ^
+          </div>
+          <div class="key hidden">
+
+          </div>
+          <div class="key" onclick="btnClick('LEFT')">
+            < </div> <div class="key" onclick="btnClick('DOWN')">
+              v
+          </div>
+          <div class="key" onclick="btnClick('RIGHT')">
+            >
+          </div>
+        </div><!-- end arrows -->
+    </div><!-- end sec-func -->
+
+
+  </div><!-- end section-b-->
+
+  </div>
+
+  <div class="showkeys">
+    <div class="keys" id="displaykeys"></div>
+    <div class="garbage" id="garbage" onclick="btnGarbageClick()">
+      <i class="fa fa-trash" aria-hidden="true"></i>
+    </div>
+    <div class="save" id="save" onclick="btnSaveClick()">
+      <i class="fa fa-save" aria-hidden="true"></i>
+    </div>
+  </div>
+
+  <div id="showMcButton">
+  </div>
+
+  <div id="voltar"><a href="./seleciona-teclas.html">Voltar</a></div>
+
+</body>
+
+</html>
