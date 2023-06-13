@@ -6,6 +6,7 @@
 #include <LittleFS.h>
 #include <AsyncJson.h>
 #include <ArduinoJson.h>
+#include "configuracoes.h"
 
 AsyncWebServer server(80);
 
@@ -146,6 +147,9 @@ void setupWeb()
             for(JsonVariant v : array) {
                 Serial.println(v.as<const char *>());
             }            
+
+            // chama o cara que vai gravar as coisas passando o jsonObj
+            salvaJSON(jsonObj);
             
             
             DynamicJsonDocument responseDoc(1024);
