@@ -35,10 +35,11 @@ const btnSaveClick = () => {
         keys: persistKeys
     }
 
+    console.log("JSON AQUI");
     console.log(JSON.stringify(obj));
+    console.log("JSON AQUI#FIM");
 
-    // var url = "./json";
-    var url = "https://reqbin.com/echo/post/json";
+    var url = "/rest/teclado";
 
     fetch(url, {
             method: "POST",

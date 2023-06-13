@@ -4,7 +4,9 @@
 #include <AsyncTCP.h>
 #include <ESPAsyncWebServer.h>
 #include <LittleFS.h>
+#include <AsyncJson.h>
 #include <ArduinoJson.h>
+
 AsyncWebServer server(80);
 
 const char *PARAM_MESSAGE = "message";
@@ -108,8 +110,8 @@ void setupWeb()
                               request->send(404);
                           } });
 
-    server.on("/", HTTP_GET, [](AsyncWebServerRequest *request)
-              { request->send(200, "text/plain", "Hello, world"); });
+    // server.on("/", HTTP_GET, [](AsyncWebServerRequest *request)
+    //           { request->send(200, "text/plain", "Hello, world"); });
 
     // Send a GET request to <IP>/get?message=<message>
     server.on("/get", HTTP_GET, [](AsyncWebServerRequest *request)
@@ -133,27 +135,26 @@ void setupWeb()
         }
         request->send(200, "text/plain", "Hello, POST: " + message); });
 
-    server.on("/json", HTTP_POST, [](AsyncWebServerRequest *request)
-              {
-        // Ler o JSON recebido
-        DynamicJsonDocument doc(1024);
-        DeserializationError error = deserializeJson(doc, request->arg("plain"));
-
-        if (error) {
-            request->send(400, "application/json", "{\"message\":\"Falha na análise do JSON\"}");
-        } else {
-            // Fazer algo com o JSON recebido
-            JsonObject jsonObject = doc.as<JsonObject>();
-            String message = jsonObject["message"].as<String>();
-
+    AsyncCallbackJsonWebHandler *handler = new AsyncCallbackJsonWebHandler("/rest/teclado", [](AsyncWebServerRequest *request, JsonVariant &json)
+                                                                           {
+            JsonObject jsonObj = json.as<JsonObject>();
+            Serial.println(jsonObj["button"].as<const char *>()); 
             // Enviar uma resposta
+            String buttons = jsonObj["button"].as<const char *>();
+
+            JsonArray array = jsonObj["keys"].as<JsonArray>();
+            for(JsonVariant v : array) {
+                Serial.println(v.as<const char *>());
+            }            
+            
+            
             DynamicJsonDocument responseDoc(1024);
             responseDoc["status"] = "OK";
-            responseDoc["message"] = "JSON recebido: " + message;
+            responseDoc["message"] = "Botão recebido: " + buttons;
             String response;
             serializeJson(responseDoc, response);
-            request->send(200, "application/json", response);
-        } });
+            request->send(200, "application/json", response); });
+    server.addHandler(handler);
 
     server.begin();
 }
