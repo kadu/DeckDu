@@ -12,7 +12,7 @@ void salvaJSON(JsonObject jsonObj);
 
 void setupConfig()
 {
-    StaticJsonDocument<256> doc;
+    DynamicJsonDocument doc(512);
 
     /*
     Verificar se o arquivo existe, se não, criar um arquivo em branco
@@ -32,12 +32,12 @@ void setupConfig()
         File file = LittleFS.open(fileName, "r");
         while (true)
         {
-            StaticJsonDocument<256> doc;
+            DynamicJsonDocument doc(512);
 
             DeserializationError err = deserializeJson(doc, file);
             if (err)
             {
-                Serial.println("Erro ao desserializar aquivo");
+                Serial.println("Open - Erro ao desserializar aquivo");
                 break;
             }
 
@@ -57,6 +57,7 @@ void setupConfig()
 
                 Serial.println();
             }
+            Serial.println("write #####");
         }
 
         file.close();
@@ -74,31 +75,36 @@ void loopConfig()
 
 void salvaJSON(JsonObject jsonObj)
 {
-    StaticJsonDocument<256> doc;
+    DynamicJsonDocument doc(512);
 
     Serial.println("## Alegria");
     Serial.println(jsonObj["button"].as<const char *>());
 
-    File file = LittleFS.open(fileName, "r+");
+    File file = LittleFS.open(fileName, "r");
 
     DeserializationError err = deserializeJson(doc, file);
     if (err)
     {
-        Serial.println("Erro ao desserializar aquivo");
+        Serial.println("Salvar - Erro ao desserializar aquivo");
         return;
     }
+    file.close();
+    file = LittleFS.open(fileName, "w");
 
     if (doc.containsKey(jsonObj["button"].as<const char *>()))
     {
-        const size_t CAPACITY = JSON_ARRAY_SIZE(3);
-        StaticJsonDocument<CAPACITY> doc2;
-        JsonArray array = doc2.to<JsonArray>();
-        array.add("K");
-        array.add("A");
-        array.add("D");
-        array.add("U");
-        doc[jsonObj["button"].as<const char *>()].set(array);
-        serializeJson(doc, file);
+        DynamicJsonDocument doc2(512);
+        doc2["keys"] = jsonObj["keys"].as<JsonArray>();
+        doc[jsonObj["button"].as<const char *>()].set(doc2);
     }
+    else
+    {
+        DynamicJsonDocument doc2(512);
+        doc2["keys"] = jsonObj["keys"].as<JsonArray>();
+
+        Serial.println("Novo elemento");
+        doc[jsonObj["button"].as<const char *>()] = doc2;
+    }
+    serializeJson(doc, file);
     file.close();
 }

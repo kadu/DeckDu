@@ -19,3 +19,8 @@ Ainda precisa estruturar melhor, mas baseado nesse cara é possivel ir "iterando
 Consegui ler a estrutura 
 
 agora ao salvar, precisa limpar o arquivo antes pra dar certo
+
+
+Deu bom
+
+Agora é garantir a consistencia na leitura e gravação / alteração de teclas
