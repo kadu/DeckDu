@@ -1,5 +1,6 @@
 {
-  "BTN_1": { "keys": ["A", "B"] },
+  "BTN_1": { "keys": ["A", "B", "OUTRO"] },
   "BTN_2": { "keys": ["C", "D"] },
-  "BTN_3": { "keys": ["E", "F"] }
+  "BTN_3": { "keys": ["E"] },
+  "BTN_4": { "keys": ["X"] }
 }
